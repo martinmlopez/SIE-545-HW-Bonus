@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage[a4paper, top=2.5cm, bottom=2.5cm, left=2.2cm, right=2.2cm]%
+{geometry}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{changepage}
+\usepackage{amssymb}
+\usepackage{fixltx2e}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\begin{document}
+
+\title{SIE 545: Fundamentals of Optimization \\Bonus Homework}
+\author{Martin Manuel Lopez \\lopez9@email.arizona.edu \\Systems and Industrial Engineering}
+\date{December 10, 2018}
+\maketitle
+\section{BSS 6.14}
+    We have the following Primal problem:\\
+        \begin{align*}
+            &\min \quad f(x)\\
+            &s.t.\\
+            &\quad g(x) + s = 0\\
+            &\quad h(x) = 0\\
+            &\quad (x,s) \in X'\\
+            &\quad X' = \{(x,s): x \in X, s \geq 0\}\\
+        \end{align*}
+    We will construct the dual using and utilizing the following dual problem:\\
+        \begin{align*}
+            &\theta(x, u) = \inf\{f(x) + u^T (g(x) + s) + v^T h(x) : (x,s) \in X' \}\\ 
+        \end{align*}
+    We separate the the slack vector $s$\\ 
+        \begin{align*}
+            &\theta(x, u) =  \inf\{f(x) + u^T (g(x)) + v^T h(x) : (x \in X' \} + \inf \{u^ts : s \geq 0 \}\\
+        \end{align*}
+    With the separation of the variable we notice that we get a piecewise function: \\
+        \begin{align*}
+            \begin{cases} 
+                    \inf \{f(x) + u^Tg(x) + v^T h(x) : x\in X' & u \geq 0\\
+                    - \infty & \text{otherwise}\\
+                \end{cases}\\
+        \end{align*}
+\section{BSS 6.40}
+    Consider the following: \\
+        \begin{align*}
+            &\min_{x \in X} \max_{y \in Y} \phi(x,y)\\\\
+            &\quad \quad \text{and}\\\\
+            &\max_{y \in Y} \min_{x \in X} \phi(x,y)\\
+        \end{align*}
+    X and Y are non-empty compact convex sets in $R^n$ and $R^m$, respectively, $\phi (x,y)$ is convex in x for any given y and concave for in y for any given x.\\\\
+    a.) Show that $\min_{x \in X} \max_{y \in Y} \phi(x,y) \geq \max_{y \in Y} \min_{x \in X} \phi(x,y)$ without assuming convexity:\\
+    b.) Must show that $\min_{x \in X} \max_{y \in Y} \phi(x,y)$ is a convex function in x and $\max_{y \in Y} \min_{x \in X} \phi(x,y)$ is a concave function in y.\\
+    c.) Show that $\min_{x \in X} \max_{y \in Y} \phi(x,y) = \max_{y \in Y} \min_{x \in X} \phi(x,y)$\\
+\section{BSS 6.43}
+\end{document}
