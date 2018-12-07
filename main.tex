@@ -85,18 +85,69 @@
     a.) Show that $\min_{x \in X} \max_{y \in Y} \phi(x,y) \geq \max_{y \in Y} \min_{x \in X} \phi(x,y)$ without assuming convexity:\\
     Without having the assumption of convexity we define the following and prove convexity first:\\
         \begin{align*}
-            &\min_{x \in X} \quad \phi(x,y) = g(x) \quad \forall x \in X\\
-            &\text{We prove convexity of }g(x)\\
+            &\min_{x \in X} \quad \phi(x,y) = g(y) \quad \forall y \in Y\\
+            &\text{We prove convexity of }g(y)\\
             &\Longrightarrow\\
-            &g(x) \leq g(\bar x) + \nabla g(\bar x)^T (x- \bar x)\\
+            &g(y) \leq g(\bar y) + \nabla g(\bar y)^T (y- \bar y)\\
         \end{align*}
     We have defined $g(x)$ as concave by the definition, $\phi (x,y)$ is differentiable within a compact set in $R^n$ for $x$. \\
     We then must prove concavity for y for any given x.\\
         \begin{align*}
-            &\text{We let }h(y) \geq h(\bar y) + \nabla h(\bar y)^T (y - \bar y) \quad \forall y \in Y\\
+            &\text{We let }h(x) \geq h(\bar x) + \nabla h(\bar x)^T (x - \bar x) \quad \forall x \in X\\
             &\text{Therefore, h(y) is concave}\\
         \end{align*}
+    Now that we have defined convexity for the $\phi (x,y) \forall x,y$ we can prove $\min_{x \in X} \max_{y \in Y} \phi(x,y) \geq \max_{y \in Y} \min_{x \in X} \phi(x,y)$. \\
+        \begin{align*}
+            &\inf_{x \in X}\phi(x,y) \leq \phi(x,y) \leq \sup_{y \in Y} \phi (x,y)\\
+            &\inf_{x \in X} \phi(x,y) = g(y)\\
+            &\sup_{y \in Y}\phi(x,y) = h(x)\\
+            &\Longleftrightarrow\\
+            &g(y) \leq \phi(x,y) \leq h(x)\\
+            &\Longleftrightarrow\\
+            &\max_{y \in Y} g(y) \leq \phi (x,y) \leq \min_{x \in X} h(x)\\
+            &\max_{y \in Y} \min_{x \in X} \phi(x,y) \leq \phi(x,y) \leq \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+            &\Longleftrightarrow\\
+            &\max_{y \in Y} \min_{x \in X} \phi(x,y) \leq \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+        \end{align*}
     b.) Must show that $\min_{x \in X} \max_{y \in Y} \phi(x,y)$ is a convex function in x and $\max_{y \in Y} \min_{x \in X} \phi(x,y)$ is a concave function in y.\\
+     Without having the assumption of convexity we define the following and prove convexity first:\\
+        \begin{align*}
+            &\min_{x \in X} \quad \phi(x,y) = g(y) \quad \forall y \in Y\\
+            &\text{We prove convexity of }g(y)\\
+            &\Longrightarrow\\
+            &g(y) \leq g(\bar y) + \nabla g(\bar y)^T (y- \bar y)\\
+        \end{align*}
+    We have defined $g(x)$ as concave by the definition, $\phi (x,y)$ is differentiable within a compact set in $R^n$ for $x$. \\
+    We then must prove concavity for y for any given x.\\
+        \begin{align*}
+            &\text{We let }h(x) \geq h(\bar x) + \nabla h(\bar x)^T (x - \bar x) \quad \forall x \in X\\
+            &\text{Therefore, h(y) is concave}\\
+        \end{align*}
+    This was also shown in the first part of part A.\\\\
     c.) Show that $\min_{x \in X} \max_{y \in Y} \phi(x,y) = \max_{y \in Y} \min_{x \in X} \phi(x,y)$\\
+    If we take the final part of part A:\\
+        \begin{align*}
+             &\max_{y \in Y} \min_{x \in X} \phi(x,y) \leq \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+        \end{align*}
+    We essentially have two conditions:\\
+        \begin{align*}
+            &\max_{y \in Y} \min_{x \in X} \phi(x,y) = 
+            \begin{cases}
+                     &= \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+                    &< \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+                \end{cases}\\
+        \end{align*}
+    We know that if we take the second case then it will go to $-\infty$:\\
+        \begin{align*}
+            &\max_{y \in Y} \min_{x \in X} \phi(x,y) = 
+            \begin{cases}
+                     &= \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+                    &-\infty \quad \text{otherwise}\\
+                \end{cases}\\
+        \end{align*}
+    Thus we have shown:\\
+        \begin{align*}
+             &\max_{y \in Y} \min_{x \in X} \phi(x,y) = \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
+        \end{align*}
 \section{BSS 6.43}
 \end{document}
