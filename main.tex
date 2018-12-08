@@ -150,4 +150,24 @@
              &\max_{y \in Y} \min_{x \in X} \phi(x,y) = \min_{x \in X} \max_{y \in Y} \phi(x,y)\\
         \end{align*}
 \section{BSS 6.43}
+    We have the following warehouse location problem stated mathematically:\\
+        \begin{align*}
+            &\min \quad \sum_{i=1}^{m} \sum_{j=1}^{k}c_{ij}x_{ij} + \sum_{i=1}^{m} f_iy_i\\
+            &s.t.\\
+            &\quad \sum_{j=1}^{k} x_{ij} \leq s_iy_i \quad \text{for } 1,...,m\\
+            &\quad \sum_{i=1}^{m}x_{ij} \geq d_j \quad \text{for } 1,..,k\\
+            &\quad 0 \leq x_{ij} \leq y_i \mi\{s_i,d_j\} \quad \text{for } i=1,...m ; j=1,...,k\\
+            &\quad y_i = 0 \text{ or } 1 \quad \text{for } i=1,...,m\\
+        \end{align*}
+    a.) We must formulate a Lagrange Function for the problem and we assume that $y_i = 0$ that way we have the upper bound fixed at $x_{ij}$.\\
+        \begin{align*}
+            &\theta (x, u) = \min \quad \sum_{i=1}^{m} \sum_{j=1}^{k}c_{ij}x_{ij} + \sum_{i=1}^{m} f_iy_i + u_1 (\sum_{j=1}^{k} x_{ij} - s_iy_i) - u_2(\sum_{i=1}^{m}x_{ij} - d_j)\\
+            &\quad \quad x \in X\\
+        \end{align*}
+    b.) We can now maximize the dual:
+        \begin{align*}
+            &\max \quad \theta(x,u)= \min \quad \sum_{i=1}^{m} \sum_{j=1}^{k}c_{ij}x_{ij} + \sum_{i=1}^{m} f_iy_i + u_1 (\sum_{j=1}^{k} x_{ij} - s_iy_i) - u_2(\sum_{i=1}^{m}x_{ij} - d_j)\\
+            &\quad \quad x \in X\\
+        \end{align*}
+    c.) We must then illustrate a numerical example which can be dictated by $x \in X$ and the amount of iterations depends on $X$.
 \end{document}
